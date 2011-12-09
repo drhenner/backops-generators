@@ -1,7 +1,7 @@
 <h1> Edit <%= singular_name.titleize %> </h1>
 
 <%%= form_for @<%= singular_name %>, :url => <%= item_path  %>(@<%= singular_name %>) do |f| %>
-  <%=  render :partial => 'form', :locals => {:f => f} %>
+  <%%=  render :partial => 'form', :locals => {:f => f} %>
   <div class="actions"><%%= f.submit, 'Update' , :class => 'button' %></div>
 <%% end %>
 

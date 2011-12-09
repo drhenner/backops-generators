@@ -1,4 +1,4 @@
-<h1> <%= plural_name.titleize %> </h1>
+<h1> <%= instances_name.titleize %> </h1>
 
 <table>
   <tr>
@@ -27,5 +27,5 @@
 <%%= will_paginate @<%= instances_name %> %>
 
 <%- if action? :new -%>
-<p><%%= link_to "New <%= singular_name.titleize %>", <%= item_path :action => :new %>, :class => 'button' %></p>
+<p><%%= link_to "New <%= instance_name.titleize %>", <%= item_path :action => :new %>, :class => 'button' %></p>
 <%- end -%>
