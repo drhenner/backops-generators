@@ -4,6 +4,7 @@
       flash[:notice] = "Successfully updated <%= name.underscore.humanize.downcase %>."
       redirect_to <%= item_path('url') %>
     else
+      form_info
       render :action => 'edit'
     end
   end

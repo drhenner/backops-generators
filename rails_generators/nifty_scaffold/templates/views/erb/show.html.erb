@@ -1,20 +1,22 @@
-<%% title "<%= singular_name.titleize %>" %>
+<h1><%= singular_name.titleize %> </h1>
 
+<ul>
 <%- for attribute in attributes -%>
-<p>
-  <strong><%= attribute.column.human_name.titleize %>:</strong>
-  <%%=h @<%= singular_name %>.<%= attribute.name %> %>
-</p>
+  <li>
+    <label><%= attribute.column.human_name.titleize %>:</label>
+    <%%=h @<%= singular_name %>.<%= attribute.name %> %>
+  </li>
 <%- end -%>
+</ul>
 
 <p>
 <%- if action? :edit -%>
-  <%%= link_to "Edit", edit_<%= singular_name %>_path(@<%= singular_name %>) %> |
+  <%%= link_to "Edit", edit_<%= singular_name %>_path(@<%= singular_name %>), :class => 'button' %> |
 <%- end -%>
 <%- if action? :destroy -%>
-  <%%= link_to "Destroy", @<%= singular_name %>, :confirm => 'Are you sure?', :method => :delete %> |
+  <%%= link_to "Destroy", @<%= singular_name %>, :confirm => 'Are you sure?', :method => :delete, :class => 'button' %> |
 <%- end -%>
 <%- if action? :index -%>
-  <%%= link_to "View All", <%= plural_name %>_path %>
+  <%%= link_to "View All", <%= plural_name %>_path, :class => 'button' %>
 <%- end -%>
 </p>

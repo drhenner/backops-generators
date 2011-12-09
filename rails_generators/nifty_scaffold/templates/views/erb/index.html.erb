@@ -1,4 +1,4 @@
-<%% title "<%= plural_name.titleize %>" %>
+<h1> <%= plural_name.titleize %> </h1>
 
 <table>
   <tr>
@@ -25,5 +25,5 @@
 </table>
 
 <%- if action? :new -%>
-<p><%%= link_to "New <%= singular_name.titleize %>", new_<%= singular_name %>_path %></p>
+<p><%%= link_to "New <%= singular_name.titleize %>", new_<%= singular_name %>_path, :class => 'button' %></p>
 <%- end -%>

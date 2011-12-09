@@ -1,4 +1,5 @@
   it "show action should render show template" do
-    get :show, :id => <%= class_name %>.first
+    <%= instance_name %> = Factory(:<%= instance_name %>)
+    get :show, :id => <%= instance_name %>.id
     response.should render_template(:show)
   end

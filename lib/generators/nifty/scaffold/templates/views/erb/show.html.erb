@@ -9,12 +9,12 @@
 
 <p>
 <%- if action? :edit -%>
-  <%%= link_to "Edit", <%= item_path :action => :edit, :instance_variable => true %> %> |
+  <%%= link_to "Edit", <%= item_path :action => :edit, :instance_variable => true %>, :class => 'button' %> |
 <%- end -%>
 <%- if action? :destroy -%>
-  <%%= link_to "Destroy", <%= item_path :instance_variable => true %>, :confirm => 'Are you sure?', :method => :delete %> |
+  <%%= link_to "Destroy", <%= item_path :instance_variable => true %>, :confirm => 'Are you sure?', :method => :delete, :class => 'button' %> |
 <%- end -%>
 <%- if action? :index -%>
-  <%%= link_to "View All", <%= items_path %> %>
+  <%%= link_to "View All", <%= items_path %>, :class => 'button' %>
 <%- end -%>
 </p>

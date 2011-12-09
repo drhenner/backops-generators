@@ -1,7 +1,10 @@
-<%% title "New <%= singular_name.titleize %>" %>
+<h1> New <%= singular_name.titleize %> </h1>
 
-<%= render_form %>
+<%%= form_for @<%= singular_name %>, :url => <%= items_path %>(@<%= singular_name %>) do |f| %>
+  <%=  render :partial => 'form', :locals => {:f => f} %>
+  <div class="actions"><%%= f.submit, 'Create' , :class => 'button' %></div>
+<%% end %>
 
 <%- if action? :index -%>
-<p><%%= link_to "Back to List", <%= items_path %> %></p>
+<p><%%= link_to "Back to List", <%= items_path %>, :class => 'button' %></p>
 <%- end -%>

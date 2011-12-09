@@ -1,4 +1,5 @@
   it "edit action should render edit template" do
-    get :edit, :id => <%= class_name %>.first
+    <%= singular_name %> = Factory(:<%= singular_name %>)
+    get :edit, :id => <%= singular_name %>.id
     response.should render_template(:edit)
   end

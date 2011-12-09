@@ -1,4 +1,4 @@
-<%% title "<%= plural_name.titleize %>" %>
+<h1> <%= plural_name.titleize %> </h1>
 
 <table>
   <tr>
@@ -15,15 +15,17 @@
       <td><%%= link_to "Show", <%= item_path %> %></td>
     <%- end -%>
     <%- if action? :edit -%>
-      <td><%%= link_to "Edit", <%= item_path :action => :edit %> %></td>
+      <td><%%= link_to "", <%= item_path :action => :edit %>, :class => 'ss_sprite ss_application_edit' %></td>
     <%- end -%>
     <%- if action? :destroy -%>
-      <td><%%= link_to "Destroy", <%= item_path %>, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%%= link_to "", <%= item_path %>, :confirm => 'Are you sure?', :method => :delete, :class => 'ss_sprite ss_cross' %></td>
     <%- end -%>
     </tr>
   <%% end %>
 </table>
 
+<%%= will_paginate @<%= instances_name %> %>
+
 <%- if action? :new -%>
-<p><%%= link_to "New <%= singular_name.titleize %>", <%= item_path :action => :new %> %></p>
+<p><%%= link_to "New <%= singular_name.titleize %>", <%= item_path :action => :new %>, :class => 'button' %></p>
 <%- end -%>
