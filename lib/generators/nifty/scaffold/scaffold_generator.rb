@@ -293,7 +293,7 @@ module Nifty
       end
 
       def model_exists?
-        File.exist? destination_path("app/models/#{singular_name}.rb") || File.exist? destination_path("app/models/#{instance_name}.rb")
+        File.exist?( destination_path("app/models/#{singular_name}.rb")) || File.exist?( destination_path("app/models/#{instance_name}.rb"))
       end
 
       def read_template(relative_path)
