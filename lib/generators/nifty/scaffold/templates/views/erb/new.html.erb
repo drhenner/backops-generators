@@ -2,7 +2,7 @@
 
 <%%= form_for @<%= instance_name %>, :url => <%= items_path %>(@<%= instance_name %>) do |f| %>
   <%%=  render :partial => 'form', :locals => {:f => f} %>
-  <div class="actions"><%%= f.submit, 'Create' , :class => 'button' %></div>
+  <div class="actions"><%%= f.submit 'Create' , :class => 'button' %></div>
 <%% end %>
 
 <%- if action? :index -%>
