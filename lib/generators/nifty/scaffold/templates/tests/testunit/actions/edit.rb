@@ -1,4 +1,5 @@
   def test_edit
-    get :edit, :id => <%= class_name %>.first
+    <%= instance_name %> = Factory(:<%= instance_name %>)
+    get :edit, :id => <%= instance_name %>.id
     assert_template 'edit'
   end

@@ -1,4 +1,5 @@
   def test_show
-    get :show, :id => <%= class_name %>.first
+    <%= instance_name %> = Factory(:<%= instance_name %>)
+    get :show, :id => <%= instance_name %>.id
     assert_template 'show'
   end
