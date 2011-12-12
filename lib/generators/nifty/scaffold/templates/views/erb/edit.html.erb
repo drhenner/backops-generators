@@ -1,6 +1,6 @@
 <h1> Edit <%= instance_name.titleize %> </h1>
 
-<%%= form_for @<%= instance_name %>, :url => <%= item_path  %>(@<%= instance_name %>) do |f| %>
+<%%= form_for @<%= instance_name %>, :url => <%= item_path  %> do |f| %>
   <%%=  render :partial => 'form', :locals => {:f => f} %>
   <div class="actions"><%%= f.submit 'Update' , :class => 'button' %></div>
 <%% end %>
