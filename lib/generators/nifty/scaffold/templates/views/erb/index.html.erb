@@ -1,28 +1,42 @@
 <h1> <%= instances_name.titleize %> </h1>
 
-<table>
-  <tr>
-  <%- for attribute in model_attributes -%>
-    <th><%= attribute.human_name.titleize %></th>
-  <%- end -%>
-  </tr>
-  <%% for <%= instance_name %> in @<%= instances_name %> %>
+<div id="admin_<%= instance_name %>_grid_wrapper" class='pretty_table'>
+  <table>
     <tr>
     <%- for attribute in model_attributes -%>
-      <td><%%= <%= instance_name %>.<%= attribute.name %> %></td>
+      <%- if attribute == model_attributes.first %>
+      <%%= <%= instance_name %>.<%= attribute.name %> %>
+        <th><%%= sortable '<%= attribute.name %>', '<%= attribute.human_name.titleize %>' %></th>
+      <%- else -%>
+        <th><%= attribute.human_name.titleize %></th>
+      <%- end -%>
     <%- end -%>
-    <%- if action? :show -%>
-      <td><%%= link_to "Show", <%= item_path %> %></td>
-    <%- end -%>
-    <%- if action? :edit -%>
-      <td><%%= link_to "", <%= item_path :action => :edit %>, :class => 'ss_sprite ss_application_edit' %></td>
-    <%- end -%>
-    <%- if action? :destroy -%>
-      <td><%%= link_to "", <%= item_path %>, :confirm => 'Are you sure?', :method => :delete, :class => 'ss_sprite ss_cross' %></td>
-    <%- end -%>
+      <%- if action? :edit -%>
+        <th></th>
+      <%- end -%>
+      <%- if action? :destroy -%>
+        <th></th>
+      <%- end -%>
     </tr>
-  <%% end %>
-</table>
+    <%% for <%= instance_name %> in @<%= instances_name %> %>
+      <tr>
+      <%- for attribute in model_attributes -%>
+        <%- if (attribute == model_attributes.first) && (action? :show) %>
+          <td><%%= link_to <%= instance_name %>.<%= attribute.name %>, <%= item_path %> %></td>
+        <%- else -%>
+          <td><%%= <%= instance_name %>.<%= attribute.name %> %></td>
+        <%- end -%>
+      <%- end -%>
+      <%- if action? :edit -%>
+        <td><%%= link_to "", <%= item_path :action => :edit %>, :class => 'ss_sprite ss_application_edit' %></td>
+      <%- end -%>
+      <%- if action? :destroy -%>
+        <td><%%= link_to "", <%= item_path %>, :confirm => 'Are you sure?', :method => :delete, :class => 'ss_sprite ss_cross' %></td>
+      <%- end -%>
+      </tr>
+    <%% end %>
+  </table>
+</div>
 
 <%%= will_paginate @<%= instances_name %> %>
 
