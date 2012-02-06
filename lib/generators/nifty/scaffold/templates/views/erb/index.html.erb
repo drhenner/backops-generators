@@ -5,7 +5,6 @@
     <tr>
     <%- for attribute in model_attributes -%>
       <%- if attribute == model_attributes.first %>
-      <%%= <%= instance_name %>.<%= attribute.name %> %>
         <th><%%= sortable '<%= attribute.name %>', '<%= attribute.human_name.titleize %>' %></th>
       <%- else -%>
         <th><%= attribute.human_name.titleize %></th>
