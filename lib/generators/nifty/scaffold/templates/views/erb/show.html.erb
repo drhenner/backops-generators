@@ -1,12 +1,13 @@
 <h1> <%=  instance_name.titleize %> </h1>
 
+<ul>
 <%- for attribute in model_attributes -%>
-<p>
-  <strong><%= attribute.human_name.titleize %>:</strong>
-  <%%= @<%= instance_name %>.<%= attribute.name %> %>
-</p>
+  <li>
+    <label><%= attribute.human_name.titleize %>:</label>
+    <%%= @<%= instance_name %>.<%= attribute.name %> %>
+  </li>
 <%- end -%>
-
+</ul>
 <p>
 <%- if action? :edit -%>
   <%%= link_to "Edit", <%= item_path :action => :edit, :instance_variable => true %>, :class => 'button' %> |
