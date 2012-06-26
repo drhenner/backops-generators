@@ -1,11 +1,15 @@
+<%% content_for :head do -%>
+
+<%% end %>
+
 <h1> <%= instances_name.titleize %> </h1>
 
 <div id="admin_<%= instance_name %>_grid_wrapper" class='pretty_table'>
   <table>
-    <tr>
+    <tr class='odd'>
     <%- for attribute in model_attributes -%>
       <%- if attribute == model_attributes.first %>
-        <th><%%= sortable '<%= attribute.name %>', '<%= attribute.human_name.titleize %>' %></th>
+        <th  class='column1_header'><%%= sortable '<%= attribute.name %>', '<%= attribute.human_name.titleize %>' %></th>
       <%- else -%>
         <th><%= attribute.human_name.titleize %></th>
       <%- end -%>
@@ -17,8 +21,9 @@
         <th></th>
       <%- end -%>
     </tr>
+    <tbody>
     <%% for <%= instance_name %> in @<%= instances_name %> %>
-      <tr>
+      <tr  class='<%%= cycle("odd", "")%>'>
       <%- for attribute in model_attributes -%>
         <%- if (attribute == model_attributes.first) && (action? :show) %>
           <td><%%= link_to <%= instance_name %>.<%= attribute.name %>, <%= item_path %> %></td>
@@ -34,6 +39,7 @@
       <%- end -%>
       </tr>
     <%% end %>
+    </tbody>
   </table>
 </div>
 
