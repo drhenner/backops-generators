@@ -18,7 +18,7 @@
       <td><%%= link_to "Edit", edit_<%= singular_name %>_path(<%= singular_name %>) %></td>
     <%- end -%>
     <%- if action? :destroy -%>
-      <td><%%= link_to "Destroy", <%= singular_name %>, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%%= link_to "Destroy", <%= singular_name %>, :data => { :confirm => "Are you sure?" }, :method => :delete %></td>
     <%- end -%>
     </tr>
   <%% end %>
