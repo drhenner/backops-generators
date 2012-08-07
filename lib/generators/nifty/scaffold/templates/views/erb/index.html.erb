@@ -35,7 +35,7 @@
         <td><%%= link_to "", <%= item_path :action => :edit %>, :class => 'ss_sprite ss_application_edit' %></td>
       <%- end -%>
       <%- if action? :destroy -%>
-        <td><%%= link_to "", <%= item_path %>, :confirm => 'Are you sure?', :method => :delete, :class => 'ss_sprite ss_cross' %></td>
+        <td><%%= link_to "", <%= item_path %>, :data => { :confirm => 'Are you sure?' }, :method => :delete, :class => 'ss_sprite ss_cross' %></td>
       <%- end -%>
       </tr>
     <%% end %>
