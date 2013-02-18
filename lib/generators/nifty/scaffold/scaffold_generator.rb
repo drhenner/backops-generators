@@ -92,7 +92,7 @@ module Nifty
         unless options.skip_controller?
           template 'controller.rb', "app/controllers/#{plural_name}_controller.rb"
 
-          template 'helper.rb', "app/helpers/#{plural_name}_helper.rb"
+          #template 'helper.rb', "app/helpers/#{plural_name}_helper.rb"
 
           controller_actions.each do |action|
             if %w[index show new edit].include?(action) # Actions with templates

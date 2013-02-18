@@ -3,9 +3,6 @@ class <%= plural_class_name %>Controller < ApplicationController
   <%= controller_methods :actions %>
 
   private
-    def form_info
-
-    end
 
     def sort_column
       <%= class_name %>.column_names.include?(params[:sort]) ? params[:sort] : "<%= model_attributes.first.name %>"

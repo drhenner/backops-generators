@@ -3,4 +3,5 @@
     delete :destroy, :id => <%= instance_name %>.id
     response.should redirect_to(<%= items_url %>)
     <%= class_name %>.exists?(<%= instance_name %>.id).should be_false
+    <%= class_name %>.find(<%= instance_name %>.id).active.should be_false
   end

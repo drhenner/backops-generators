@@ -4,23 +4,25 @@
 
 <h1> <%= instances_name.titleize %> </h1>
 
-<div id="admin_<%= instance_name %>_grid_wrapper" class='pretty_table'>
+<div id="<%= instance_name %>_grid_wrapper" class='pretty_table'>
   <table>
-    <tr class='odd'>
-    <%- for attribute in model_attributes -%>
-      <%- if attribute == model_attributes.first %>
-        <th  class='column1_header'><%%= sortable '<%= attribute.name %>', '<%= attribute.human_name.titleize %>' %></th>
-      <%- else -%>
-        <th><%= attribute.human_name.titleize %></th>
+    <thead>
+      <tr class='odd'>
+      <%- for attribute in model_attributes -%>
+        <%- if attribute == model_attributes.first %>
+          <th  class='column1_header'><%%= sortable '<%= attribute.name %>', '<%= attribute.human_name.titleize %>' %></th>
+        <%- else -%>
+          <th><%= attribute.human_name.titleize %></th>
+        <%- end -%>
       <%- end -%>
-    <%- end -%>
-      <%- if action? :edit -%>
-        <th></th>
-      <%- end -%>
-      <%- if action? :destroy -%>
-        <th></th>
-      <%- end -%>
-    </tr>
+        <%- if action? :edit -%>
+          <th></th>
+        <%- end -%>
+        <%- if action? :destroy -%>
+          <th></th>
+        <%- end -%>
+      </tr>
+    </thead>
     <tbody>
     <%% for <%= instance_name %> in @<%= instances_name %> %>
       <tr  class='<%%= cycle("odd", "")%>'>
