@@ -1,8 +1,9 @@
-
-  <%%= f.error_messages %>
+<%%= f.error_messages %>
+<ul>
 <%- for attribute in attributes -%>
-  <p>
+  <li>
     <%%= f.label :<%= attribute.name %> %><br />
     <%%= f.<%= attribute.field_type %> :<%= attribute.name %> %>
-  </p>
+  </li>
 <%- end -%>
+</ul>
