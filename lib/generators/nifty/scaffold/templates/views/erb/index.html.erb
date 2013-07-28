@@ -34,10 +34,10 @@
         <%- end -%>
       <%- end -%>
       <%- if action? :edit -%>
-        <td><%%= link_to "", <%= item_path :action => :edit %>, :class => 'ss_sprite ss_application_edit' %></td>
+        <td><%%= link_to "", <%= item_path action: :edit %> %></td>
       <%- end -%>
       <%- if action? :destroy -%>
-        <td><%%= link_to "", <%= item_path %>, :data => { :confirm => 'Are you sure?' }, :method => :delete, :class => 'ss_sprite ss_cross' %></td>
+        <td><%%= link_to "", <%= item_path %>, data: { confirm: 'Are you sure?' }, method: :delete %></td>
       <%- end -%>
       </tr>
     <%% end %>
@@ -48,5 +48,5 @@
 <%%= will_paginate @<%= instances_name %> %>
 
 <%- if action? :new -%>
-<p><%%= link_to "New <%= instance_name.titleize %>", <%= item_path :action => :new %>, :class => 'button' %></p>
+<p><%%= link_to "New <%= instance_name.titleize %>", <%= item_path action: :new %>, class: 'button' %></p>
 <%- end -%>
