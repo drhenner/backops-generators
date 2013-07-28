@@ -8,6 +8,11 @@ class Create<%= class_name.pluralize.delete('::') %> < ActiveRecord::Migration
       t.timestamps
     <%- end -%>
     end
+    <%- for attribute in model_attributes -%>
+      <%- if attribute.name[-3..-1] && attribute.name[-3..-1] == '_id' -%>
+      add_index :<%= table_name || plural_name.split('/').last %> :<%= attribute.name %>
+      <%- end -%>
+    <%- end -%>
   end
 
   def self.down
